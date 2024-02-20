@@ -1,48 +1,22 @@
-import java.util.ArrayList;
-
-public class Card {
-    private String type;
+class Card {
+    private String couleur;
     private String valeur;
 
-    public Card(String type, String valeur) {
-        this.type = type;
+    public Card(String couleur, String valeur) {
+        this.couleur = couleur;
         this.valeur = valeur;
     }
 
-    public String getType(){
-        return type;
+    public String getCouleur() {
+        return couleur;
     }
-    public void setType(String type){
-        this.type = type;
-    }
-    public String getValeur(){
+
+    public String getValeur() {
         return valeur;
     }
-    public void setValeur(String valeur){
-        this.valeur = valeur;
-    }
 
-
-
-
+    @Override
     public String toString() {
-        return "[" + valeur + "|" + type + "]";
-    }
-
-    public static void buildDeck() {
-        String[] types = {" carreau", " cœur", " pique", " trèfle"};
-        String[] valeurs = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-
-        ArrayList<Card> deck = new ArrayList<>();
-
-        for (int i = 0; i < valeurs.length; i++) {
-            for (int j = 0; j < types.length; j++) {
-                Card card = new Card(types[j], valeurs[i]);
-                deck.add(card);
-            }
-        }
-
-        PaquetCards paquetCards = new PaquetCards(deck, deck.size()); 
-    
+        return "[" + couleur + " | " + valeur + "]";
     }
 }

@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-
-public class Hand {
+class Hand {
     private int valeurTotal;
     private String nom;
     private int nbCartes;
@@ -16,33 +14,45 @@ public class Hand {
     }
 
     public int getValue() {
+        valeurTotal = 0;
+        int nbAs = 0;
 
         for (Card card : listeCarte) {
             String cardValue = card.getValeur();
 
             if ("AJQK".contains(cardValue)) {
-
-                if("A".equals(cardValue)){
-                    return 11;
-                }else{
-                    return 10;
+                if ("A".equals(cardValue)) {
+                    nbAs++;
+                    valeurTotal += 11;
+                } else {
+                    valeurTotal += 10;
                 }
-            
             } else {
-                
                 valeurTotal += Integer.parseInt(cardValue);
             }
         }
-        return valeurTotal;
 
+      
+        while (nbAs > 0 && valeurTotal > 21) {
+            valeurTotal -= 10;
+            nbAs--;
+        }
+
+        return valeurTotal;
     }
 
-
-
-    public void ajouterCarte(String type, String value) {
-        Card card = new Card(type, value);
+    public void ajouterCarte(String couleur, String valeur) {
+        Card card = new Card(couleur, valeur);
         listeCarte.add(card);
         nbCartes++;
     }
-   
+
+    public ArrayList<Card> getListeCarte() {
+        return listeCarte;
+    }
+
+    @Override
+    public String toString() {
+        return nom + "'s Hand: " + listeCarte + " (Total Value: " + getValue() + ")";
+    }
 }
