@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-class Hand {
-    private int valeurTotal;
-    private String nom;
-    private int nbCartes;
-    private ArrayList<Card> listeCarte;
+class Hand implements MainInterface {
+    int valeurTotal;
+    String nom;
+    int nbCartes;
+    ArrayList<Card> listeCarte;
 
     public Hand(String nom) {
         this.nom = nom;
@@ -41,6 +41,7 @@ class Hand {
         return valeurTotal;
     }
 
+        @Override
     public void ajouterCarte(String couleur, String valeur) {
         Card card = new Card(couleur, valeur);
         listeCarte.add(card);

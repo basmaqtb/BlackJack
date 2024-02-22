@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 class Person {
-    protected String nom;
-    protected Hand hand;
+    String nom;
+    Hand hand;
 
     public Person(String nom) {
         this.nom = nom;
@@ -12,6 +12,10 @@ class Person {
     public String getNom() {
         return nom;
     }
+    public void setNom(String nom){
+        this.nom = nom;
+    }
+    
 
     public Hand getHand() {
         return hand;

@@ -1,22 +1,22 @@
 class Card {
-    private String couleur;
+    private String Card_type;
     private String valeur;
 
-    public Card(String couleur, String valeur) {
-        this.couleur = couleur;
+    public Card(String Card_type, String valeur) {
+        this.Card_type = Card_type;
         this.valeur = valeur;
     }
 
-    public String getCouleur() {
-        return couleur;
-    }
+            public String getCard_type() {
+                return Card_type;
+            }
 
-    public String getValeur() {
-        return valeur;
-    }
+            public String getValeur() {
+                return valeur;
+            }
 
     @Override
     public String toString() {
-        return "[" + couleur + " | " + valeur + "]";
+        return "[" + Card_type + " | " + valeur + "]";
     }
 }

@@ -6,6 +6,10 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         Blackjack blackjack = new Blackjack("joueur", 1000, 30000);
 
+        System.out.println("Entrer votre nom : ");
+        String name = scanner.nextLine();
+        blackjack.getPlayer().setNom(name);
+
         System.out.println("Que voulez-vous faire ?");
         System.out.println("1- Commencer une partie");
         System.out.println("2- Consulter votre solde");
